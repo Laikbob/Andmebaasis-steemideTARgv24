@@ -9,4 +9,8 @@ Piirangud/ Ограничения
 * FOREIGN KEY -  seos -  связь с PK с дугой таблицы
 * NOT NULL - не даёт пропусить запись
 * UNIQUE - не даёт ввести одинаковые ( например  isikukood)
-* CHECK - Выбор значения
+* CHECK -valik-  Выбор значения
+
+SQL -? Structure Query Language
+* DDL - Data Definition Language- CREATE TABLE, ALTER TABLE, DROP TABLE
+* DML - Data Manipulation Language - INSERT INTO, UPDATE ,DELETE
