@@ -84,3 +84,18 @@ END;
 EXEC otsingUudiseTeema 'w';
 
 --Xamp
+CREATE TABLE uudised(
+uudisID int PRIMARY KEY AUTO_INCREMENT,
+uudiseTeema varchar(50),
+kuupaev date,
+autor varchar(25),
+kirjeldus text
+);
+INSERT INTO uudised(
+uudiseTeema, kuupaev, autor, kirjeldus)
+VALUES(
+'udune ilm','2025-02-06','postimees','Lõunani on uudine ilm');
+
+
+CALL lisauudis ('windows 11', '2025-02-06', 'õpetaja Pant','jjj');
+-- protseduurid
