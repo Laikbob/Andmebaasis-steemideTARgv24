@@ -99,3 +99,54 @@ VALUES(
 
 CALL lisauudis ('windows 11', '2025-02-06', 'õpetaja Pant','jjj');
 -- protseduurid
+
+----Klassi ise töö---------
+
+CREATE TABLE Mängud(
+MänguID INT PRIMARY KEY IDENTITY(1,1),
+nimi VARCHAR(100),
+vakuupäev DATE,
+zanr VARCHAR(50)
+);
+
+SELECT * FROM Mängud;
+
+--protseduur, lisa uus mang
+CREATE PROCEDURE LisaMängu
+@nimi VARCHAR(100),
+@vakuupäev DATE,
+@zanr VARCHAR(50)
+AS
+BEGIN
+INSERT INTO Mängud(
+nimi,vakuupäev, zanr)
+VALUES (
+@nimi, @vakuupäev, @zanr);
+SELECT* FROM Mängud;
+END;
+--kutse
+EXEC LisaMängu'Cyberpunk 2077', '2020-12-10', 'Action RPG';
+
+CREATE PROCEDURE LeiaMängIDJärgi
+@MänguID INT
+AS
+BEGIN
+SELECT * FROM Mängud
+WHERE MänguID = @MänguID;
+END;
+--kutse
+EXEC LeiaMängIDJärgi 1;
+
+CREATE PROCEDURE VärskendaŽanr
+@MänguID INT,
+@UusŽanr VARCHAR(50)
+AS
+BEGIN
+UPDATE Mängud
+SET zanr = @UusŽanr
+WHERE MänguID = @MänguID;
+    -- Muudatuste kontrollimine
+SELECT * FROM Mängud WHERE MänguID = @MänguID;
+END;
+--kutse
+EXEC VärskendaŽanr 1, 'Sci-Fi RPG';
